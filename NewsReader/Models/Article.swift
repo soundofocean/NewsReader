@@ -1,8 +1,10 @@
 import Foundation
 
 /// Модель статьи
-struct Article: Codable, Hashable {  
-  /// Заголовок
+struct Article: Codable, Identifiable {
+  
+  var id: String = UUID().uuidString
+  
   var title: String?
   
   var author: String?
@@ -16,5 +18,15 @@ struct Article: Codable, Hashable {
   var image: String?
   
   var date: String?
+  
+  enum CodingKeys: CodingKey {
+    case title
+    case author
+    case source
+    case url
+    case description
+    case image
+    case date
+  }
 }
 
