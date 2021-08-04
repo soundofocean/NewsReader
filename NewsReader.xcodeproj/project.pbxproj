@@ -11,6 +11,8 @@
 		553D6DE426AF213A00138102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553D6DE326AF213A00138102 /* ContentView.swift */; };
 		553D6DE626AF213E00138102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553D6DE526AF213E00138102 /* Assets.xcassets */; };
 		553D6DE926AF213E00138102 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553D6DE826AF213E00138102 /* Preview Assets.xcassets */; };
+		555B917B26BB114100737F6D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B917A26BB114100737F6D /* Persistence.swift */; };
+		555B918026BB132A00737F6D /* NewsReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 555B917E26BB132A00737F6D /* NewsReader.xcdatamodeld */; };
 		55DBDC9726AF317A00286AEC /* ArticlesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DBDC9626AF317A00286AEC /* ArticlesScreen.swift */; };
 		55DBDC9B26AF35F800286AEC /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DBDC9A26AF35F800286AEC /* Article.swift */; };
 		55DBDC9E26AF36A500286AEC /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DBDC9D26AF36A500286AEC /* ArticlesViewModel.swift */; };
@@ -25,6 +27,8 @@
 		553D6DE526AF213E00138102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		553D6DE826AF213E00138102 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		553D6DEA26AF213E00138102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		555B917A26BB114100737F6D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		555B917F26BB132A00737F6D /* NewsReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsReader.xcdatamodel; sourceTree = "<group>"; };
 		55DBDC9626AF317A00286AEC /* ArticlesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesScreen.swift; sourceTree = "<group>"; };
 		55DBDC9A26AF35F800286AEC /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		55DBDC9D26AF36A500286AEC /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				553D6DF326AF291C00138102 /* Models */,
+				555B917926BB112500737F6D /* Persistence */,
 				553D6DE726AF213E00138102 /* Preview Content */,
 				553D6DF426AF297800138102 /* Resources */,
 				553D6DF526AF29EA00138102 /* System */,
@@ -112,6 +117,15 @@
 				553D6DE126AF213A00138102 /* NewsReaderApp.swift */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		555B917926BB112500737F6D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				555B917E26BB132A00737F6D /* NewsReader.xcdatamodeld */,
+				555B917A26BB114100737F6D /* Persistence.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		55DBDC9226AF2FC100286AEC /* Screens */ = {
@@ -210,10 +224,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				55E4671726B85FAD0045889F /* News.swift in Sources */,
+				555B917B26BB114100737F6D /* Persistence.swift in Sources */,
 				55DBDC9B26AF35F800286AEC /* Article.swift in Sources */,
 				55DBDC9E26AF36A500286AEC /* ArticlesViewModel.swift in Sources */,
 				55DBDC9726AF317A00286AEC /* ArticlesScreen.swift in Sources */,
 				553D6DE426AF213A00138102 /* ContentView.swift in Sources */,
+				555B918026BB132A00737F6D /* NewsReader.xcdatamodeld in Sources */,
 				553D6DE226AF213A00138102 /* NewsReaderApp.swift in Sources */,
 				55E4671B26B86E360045889F /* ArticleScreen.swift in Sources */,
 			);
@@ -402,6 +418,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		555B917E26BB132A00737F6D /* NewsReader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				555B917F26BB132A00737F6D /* NewsReader.xcdatamodel */,
+			);
+			currentVersion = 555B917F26BB132A00737F6D /* NewsReader.xcdatamodel */;
+			path = NewsReader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 553D6DD626AF213A00138102 /* Project object */;
 }
