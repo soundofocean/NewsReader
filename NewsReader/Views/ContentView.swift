@@ -30,8 +30,8 @@ struct ContentView: View {
           }
         }
       
-      // Будущий экран с избранными статьями
-      Text("Favorites")
+      // Экран с избранными статьями
+      FavoritesScreen()
         
         .tabItem {
           Text("Favorites")
