@@ -5,7 +5,7 @@ import Foundation
 /// Класс, который описывает запросы к БД
 class ArticleStorage: NSObject, ObservableObject {
   
-//  Создание издателя, содержащего массив моделек Article - информацию об изменении массива получают все, кто на него подписан
+  //  Создание издателя, содержащего массив моделек Article - информацию об изменении массива получают все, кто на него подписан
   var articles = CurrentValueSubject<[ArticleModelObject], Never>([])
   
   private let articlesFetchController: NSFetchedResultsController<ArticleModelObject>
@@ -25,12 +25,20 @@ class ArticleStorage: NSObject, ObservableObject {
     
     do {
       
-//      Попытка выполнения зароса и сохранение результата в articles или пустого массива в случае ошибки
+      //      Попытка выполнения зароса и сохранение результата в articles или пустого массива в случае ошибки
       try articlesFetchController.performFetch()
       articles.value = articlesFetchController.fetchedObjects ?? []
     } catch {
       NSLog("Error: couldn't fetch request")
     }
+  }
+  
+  func add() {
+    
+  }
+  
+  func delete(id: UUID) {
+    
   }
 }
 
