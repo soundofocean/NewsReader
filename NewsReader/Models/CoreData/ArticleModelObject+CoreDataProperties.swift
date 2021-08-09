@@ -4,7 +4,11 @@ import CoreData
 extension ArticleModelObject {
   
   @nonobjc public class func fetchRequest() -> NSFetchRequest<ArticleModelObject> {
-    return NSFetchRequest<ArticleModelObject>(entityName: "ArticleModelObject")
+    let fetchRequest = NSFetchRequest<ArticleModelObject>(entityName: "ArticleModelObject")
+    
+    fetchRequest.sortDescriptors = []
+    
+    return fetchRequest
   }
   
   @NSManaged public var title: String?

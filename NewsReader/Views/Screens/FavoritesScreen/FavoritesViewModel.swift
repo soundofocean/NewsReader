@@ -20,4 +20,8 @@ class FavoritesViewModel: ObservableObject {
       self.articles = articles
     }
   }
+  
+  func add(article: Article) {
+    ArticleStorage.shared.add(article: article)
+  }
 }

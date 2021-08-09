@@ -4,12 +4,16 @@ struct ArticleScreen: View {
   
   var article: Article
   
+  @ObservedObject var favoritesViewModel = FavoritesViewModel()
+  
   var body: some View {
     VStack {
       Text(article.description ?? "No description")
         .padding()
       
       Button {
+        
+        favoritesViewModel.add(article: article)
         
       } label: {
         Image(systemName: "star")

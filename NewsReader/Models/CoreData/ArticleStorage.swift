@@ -10,6 +10,7 @@ class ArticleStorage: NSObject, ObservableObject {
   
   private let articlesFetchController: NSFetchedResultsController<ArticleModelObject>
   
+  /// Объект в единственном экземпляре на все приложение
   static let shared: ArticleStorage = ArticleStorage()
   
   private override init() {
@@ -33,8 +34,23 @@ class ArticleStorage: NSObject, ObservableObject {
     }
   }
   
-  func add() {
-    
+  /// Метод добавления новой записи
+  /// - Parameter article: объект
+  func add(article: Article) {
+    do {
+      
+      /// Новая запись о статье в БД
+      let newCoreDataArticle = ArticleModelObject(context: PersistenceController.shared.container.viewContext)
+      
+//      Связка
+      newCoreDataArticle.title = article.title
+      
+//      Попытка сохранения в контейнер
+      try newCoreDataArticle.managedObjectContext?.save()
+      
+    } catch {
+      print(error)
+    }
   }
   
   func delete(id: UUID) {
