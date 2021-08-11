@@ -3,18 +3,26 @@ import SwiftUI
 /// Экран со статьями
 struct ArticlesScreen: View {
   
-  // Наблюдаем за списком статей
+  /// Подписчик ( объект наблюдения) - объект типа ViewModel, который следит за списком статей
   @ObservedObject var articlesViewModel = ArticlesViewModel()
   
   var body: some View {
     
     NavigationView {
+      
+      //Список статей
       List(articlesViewModel.articles) { article in
+        
+        //Навигация, позволяющая открыть новый экран отдельной выбранной статьи
         NavigationLink(destination: ArticleScreen(article: article)) {
+          
+          //Текстовый view в виде заголовка
           HStack {
             Text(article.title ?? "WRONG!")
           }
         }
+        
+        //Название экрана
         .navigationTitle(Text("News"))
       }
     }
@@ -24,10 +32,4 @@ struct ArticlesScreen: View {
       articlesViewModel.loadingArticles()
     }
   }
-}
-
-
-
-var some: (String) -> Void = { hvl in
-  print(hvl)
 }

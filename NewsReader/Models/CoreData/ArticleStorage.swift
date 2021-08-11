@@ -2,17 +2,21 @@ import Combine
 import CoreData
 import Foundation
 
-/// Класс, который описывает запросы к БД
+/// Класс, который хранит в себе все статьи и описывает запросы к БД
 class ArticleStorage: NSObject, ObservableObject {
   
-  //  Создание издателя, содержащего массив моделек Article - информацию об изменении массива получают все, кто на него подписан
+// #warning - что такое CurrentValueSubject
+  // Издатель, содержащего массив моделек Article
   var articles = CurrentValueSubject<[ArticleModelObject], Never>([])
   
+  // #warning! что это за константа?
+  /// Контроллер управления результатами запроса Core Data и для отображения данных пользователю.
   private let articlesFetchController: NSFetchedResultsController<ArticleModelObject>
   
   /// Объект в единственном экземпляре на все приложение
   static let shared: ArticleStorage = ArticleStorage()
   
+//#warning - что значит оverride? В целом не понимаю, как работает конструктор
   private override init() {
     articlesFetchController = NSFetchedResultsController(
       fetchRequest: ArticleModelObject.fetchRequest(),
@@ -20,13 +24,14 @@ class ArticleStorage: NSObject, ObservableObject {
       sectionNameKeyPath: nil, cacheName: nil
     )
     
+//#warning  что значит super
     super.init()
     
     articlesFetchController.delegate = self
     
     do {
       
-      //      Попытка выполнения зароса и сохранение результата в articles или пустого массива в случае ошибки
+      //  Попытка выполнения запроса и сохранение результата в articles или пустого массива в случае ошибки
       try articlesFetchController.performFetch()
       articles.value = articlesFetchController.fetchedObjects ?? []
     } catch {
@@ -58,6 +63,7 @@ class ArticleStorage: NSObject, ObservableObject {
   }
 }
 
+//#warning! - что это вообще за расширение?
 // При изменении в контенте динамически обновляются статьи
 extension ArticleStorage: NSFetchedResultsControllerDelegate {
   public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

@@ -14,7 +14,7 @@ struct ContentView: View {
           VStack {
             Image(systemName: "chart.bar.doc.horizontal.fill")
               .resizable()
-              //              Отрисовка картинки в виде миниатюры
+              // Отрисовка картинки в виде миниатюры
               .renderingMode(.template)
               .foregroundColor(.yellow)
               .font(.system(size: 24, weight: .heavy))
