@@ -30,4 +30,9 @@ class FavoritesViewModel: ObservableObject {
   func add(article: Article) {
     ArticleStorage.shared.add(article: article)
   }
+  
+  func deleteArticle(at indexSet: IndexSet) {
+    ArticleStorage.shared.delete(id: articles[Array(indexSet).first!].id)
+  }
 }
+

@@ -5,7 +5,7 @@ import Foundation
 /// Класс, который хранит в себе все статьи и описывает запросы к БД
 class ArticleStorage: NSObject, ObservableObject {
   
-// #warning - что такое CurrentValueSubject
+  // #warning - что такое CurrentValueSubject
   // Издатель, содержащего массив моделек Article
   var articles = CurrentValueSubject<[ArticleModelObject], Never>([])
   
@@ -16,7 +16,7 @@ class ArticleStorage: NSObject, ObservableObject {
   /// Объект в единственном экземпляре на все приложение
   static let shared: ArticleStorage = ArticleStorage()
   
-//#warning - что значит оverride? В целом не понимаю, как работает конструктор
+  //#warning - что значит оverride? В целом не понимаю, как работает конструктор
   private override init() {
     articlesFetchController = NSFetchedResultsController(
       fetchRequest: ArticleModelObject.fetchRequest(),
@@ -24,7 +24,7 @@ class ArticleStorage: NSObject, ObservableObject {
       sectionNameKeyPath: nil, cacheName: nil
     )
     
-//#warning  что значит super
+    //#warning  что значит super
     super.init()
     
     articlesFetchController.delegate = self
@@ -47,10 +47,10 @@ class ArticleStorage: NSObject, ObservableObject {
       /// Новая запись о статье в БД
       let newCoreDataArticle = ArticleModelObject(context: PersistenceController.shared.container.viewContext)
       
-//      Связка
+      //      Связка
       newCoreDataArticle.title = article.title
       
-//      Попытка сохранения в контейнер
+      //      Попытка сохранения в контейнер
       try newCoreDataArticle.managedObjectContext?.save()
       
     } catch {
@@ -59,7 +59,18 @@ class ArticleStorage: NSObject, ObservableObject {
   }
   
   func delete(id: UUID) {
+    /// Объект запроса
+    let fetchArticleRequest = ArticleModelObject.fetchArticleRequest(id: id)
     
+    //    let deleteArticleRequest = NSBatchDeleteRequest(fetchRequest: fetchArticleRequest)
+    
+    do {
+      let article = try PersistenceController.shared.container.viewContext.execute(fetchArticleRequest)
+      
+      PersistenceController.shared.container.viewContext.delete(article.)
+    } catch {
+      print(String(describing: error))
+    }
   }
 }
 

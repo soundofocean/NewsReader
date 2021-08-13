@@ -15,14 +15,21 @@ struct FavoritesScreen: View {
     NavigationView {
       
       //Список из текстовых view, которые представляют собой заголовки избранных статей
-      List(favoritesViewModel.articles) { article in
-        NavigationLink(destination: FavoriteArticleScreen(article: article )) {
+      List {
+        ForEach(favoritesViewModel.articles, id: \.self) { article in
           
-          HStack {
-            Text(article.title ?? "No title")
+          NavigationLink(destination: FavoriteArticleScreen(article: article)) {
+            
+            HStack {
+              Text(article.title ?? "No title")
+            }
           }
+          .navigationTitle(Text("One of your favorites articles"))
         }
-        .navigationTitle(Text("One of your favorites articles"))
+//        .onDelete(perform: favoritesViewModel.deleteArticle)
+        .onDelete { index in
+          favoritesViewModel.deleteArticle(at: index)
+        }
       }
     }
   }

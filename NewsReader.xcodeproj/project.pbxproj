@@ -64,7 +64,6 @@
 			children = (
 				552379C726BFE89F00A52810 /* ArticleModelObject+CoreDataClass.swift */,
 				552379C826BFE89F00A52810 /* ArticleModelObject+CoreDataProperties.swift */,
-				552379C326BFE4A700A52810 /* ArticleStorage.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -74,7 +73,6 @@
 			children = (
 				552379CD26BFEC4000A52810 /* FavoritesScreen.swift */,
 				552379D026BFECFE00A52810 /* FavoritesViewModel.swift */,
-				55922DB626C44F3B00B37C3C /* FavoriteArticleScreen.swift */,
 			);
 			path = FavoritesScreen;
 			sourceTree = "<group>";
@@ -155,18 +153,28 @@
 		555B917926BB112500737F6D /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				552379C326BFE4A700A52810 /* ArticleStorage.swift */,
 				555B917E26BB132A00737F6D /* NewsReader.xcdatamodeld */,
 				555B917A26BB114100737F6D /* Persistence.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		55922DB826C597D300B37C3C /* FavoriteArticleScreen */ = {
+			isa = PBXGroup;
+			children = (
+				55922DB626C44F3B00B37C3C /* FavoriteArticleScreen.swift */,
+			);
+			path = FavoriteArticleScreen;
+			sourceTree = "<group>";
+		};
 		55DBDC9226AF2FC100286AEC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				552379CC26BFEC1800A52810 /* FavoritesScreen */,
 				55E4671926B86E1D0045889F /* ArticleScreen */,
 				55DBDC9526AF315200286AEC /* ArticlesScreen */,
+				55922DB826C597D300B37C3C /* FavoriteArticleScreen */,
+				552379CC26BFEC1800A52810 /* FavoritesScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
